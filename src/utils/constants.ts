@@ -1,0 +1,8 @@
+export const BASE_PERSON_NODE_WIDTH = 100;
+export const BASE_PERSON_NODE_HEIGHT = 100;
+export const BASE_MARITAL_NODE_WIDTH = 30;
+export const BASE_MARITAL_NODE_HEIGHT = 30;
+export const BASE_SIBLINGS_SPACING = 280;
+export const BASE_MARITAL_SPACING = 130;
+export const BASE_GENERATIONS_SPACING = 250;
+export const BASE_PARENTS_GAP = 140;
