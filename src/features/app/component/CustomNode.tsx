@@ -3,7 +3,7 @@ import { PersonData, PersonNodeData } from "../types/PersonNodeData";
 import { BASE_PERSON_NODE_HEIGHT, BASE_PERSON_NODE_WIDTH } from "../utils/constants";
 import { AnimatePresence, Variants, easeOut, motion } from "framer-motion";
 import { useRecoilValue } from "recoil";
-import { selectedNodeState } from "../../../recoil/selectedNodeState";
+import { selectedNodeState } from "../recoil/selectedNodeState";
 import { BiSolidUser } from "react-icons/bi";
 import styled, { css, keyframes } from "styled-components";
 import { formatBirthDay } from '../utils/formatBirthDay';

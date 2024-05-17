@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { PersonNodeData, MaritalNodeData } from "../features/app/types/PersonNodeData";
+import { PersonNodeData, MaritalNodeData } from "../types/PersonNodeData";
 
 export const initialNode: (PersonNodeData | MaritalNodeData) =
   {

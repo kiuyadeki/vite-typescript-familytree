@@ -1,8 +1,8 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { wholeNodesState } from "../../../recoil/WholeNodesState";
-import { wholeEdgesState } from "../../../recoil/WholeEdgesState";
-import { selectedNodeState } from "../../../recoil/selectedNodeState";
-import { nodesUpdatedState } from "../../../recoil/nodesUpdatedState";
+import { wholeNodesState } from "../recoil/WholeNodesState";
+import { wholeEdgesState } from "../recoil/WholeEdgesState";
+import { selectedNodeState } from "../recoil/selectedNodeState";
+import { nodesUpdatedState } from "../recoil/nodesUpdatedState";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { personNode } from "./CustomNode";
 import { maritalNode } from "./MaritalStatusNode";

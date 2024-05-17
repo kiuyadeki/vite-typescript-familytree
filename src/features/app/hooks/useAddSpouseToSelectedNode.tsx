@@ -6,7 +6,7 @@ import { createMaritalNode, createPersonNode } from "../utils/nodeUtils";
 import { createEdge } from "../utils/edgeUtils";
 import { BASE_MARITAL_SPACING } from "../utils/constants";
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { selectedNodeState } from '../../../recoil/selectedNodeState';
+import { selectedNodeState } from '../recoil/selectedNodeState';
 
 export const useAddSpouseToSelectedNode = (
   setWholeNodes: Dispatch<SetStateAction<(PersonNodeData | MaritalNodeData)[]>>,

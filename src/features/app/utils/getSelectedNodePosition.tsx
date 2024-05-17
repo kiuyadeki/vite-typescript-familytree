@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil';
-import { selectedNodeState } from '../../../recoil/selectedNodeState';
+import { selectedNodeState } from '../recoil/selectedNodeState';
 import { MaritalNodeData, PersonNodeData } from '../types/PersonNodeData';
 import { isPersonNodeData } from '../typeGuards/personTypeGuards';
 

@@ -5,8 +5,6 @@ module.exports = {
   },
   extends: [
     "plugin:react/recommended",
-    "airbnb",
-    "airbnb/hooks",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
@@ -26,7 +24,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   plugins: ["@typescript-eslint", "import", "jsx-a11y", "react", "react-hooks"],
-  root: true, // 親ディレクトリの設定ファイルを読み込まないように設定
+  root: true,
   rules: {
     "object-property-newline": [
       "error",

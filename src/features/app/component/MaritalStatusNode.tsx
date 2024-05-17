@@ -4,7 +4,7 @@ import { MaritalData } from "../types/PersonNodeData";
 import { GiBigDiamondRing } from "react-icons/gi";
 import { TfiUnlink } from "react-icons/tfi";
 import { useRecoilState } from "recoil";
-import { wholeNodesState } from "../../../recoil/WholeNodesState";
+import { wholeNodesState } from "../recoil/WholeNodesState";
 import styled from "styled-components";
 
 const StyledHandle = styled(Handle)`
