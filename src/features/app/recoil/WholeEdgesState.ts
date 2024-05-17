@@ -4,6 +4,6 @@ import { atom } from 'recoil';
 const initialEdges: Edge[] = [];
 
 export const wholeEdgesState = atom<Edge[]>({
-  key: "wholeEdgesState",
+  key: 'wholeEdgesState',
   default: initialEdges,
 });

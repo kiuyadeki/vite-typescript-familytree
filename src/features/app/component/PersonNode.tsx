@@ -1,11 +1,11 @@
-import { Handle, NodeProps, Position } from "reactflow";
-import { PersonData, PersonNodeData } from "../types/PersonNodeData";
-import { BASE_PERSON_NODE_HEIGHT, BASE_PERSON_NODE_WIDTH } from "../utils/constants";
-import { AnimatePresence, Variants, easeOut, motion } from "framer-motion";
-import { useRecoilValue } from "recoil";
-import { selectedNodeState } from "../recoil/selectedNodeState";
-import { BiSolidUser } from "react-icons/bi";
-import styled, { css, keyframes } from "styled-components";
+import { Handle, NodeProps, Position } from 'reactflow';
+import { PersonData } from '../types/PersonNodeData';
+import { BASE_PERSON_NODE_WIDTH } from '../utils/constants';
+import { AnimatePresence, Variants, motion } from 'framer-motion';
+import { useRecoilValue } from 'recoil';
+import { selectedNodeState } from '../recoil/selectedNodeState';
+import { BiSolidUser } from 'react-icons/bi';
+import styled, { css, keyframes } from 'styled-components';
 import { formatBirthDay } from '../utils/formatBirthDay';
 import { formatFullName } from '../utils/formatFullName';
 
@@ -47,7 +47,7 @@ opacity: 0;
 
 const selectedStyle = css`
   &::before {
-    content: "";
+    content: '';
     animation: ${selectedAnimation} 1.5s linear infinite;
   }
 `;
@@ -84,7 +84,7 @@ const IconBox = styled.div<StyledBoxProps>`
   overflow: hidden;
   border-radius: 50%;
   position: relative;
-  background-color: ${({ isSelected }) => (isSelected ? "#3182ce" : "#EB912E")};
+  background-color: ${({ isSelected }) => (isSelected ? '#3182ce' : '#EB912E')};
   transform: scale(1.1);
 `;
 
@@ -116,28 +116,31 @@ const Text = styled.p`
   font-size: 16px;
 `;
 
-export const personNode = (props: NodeProps<PersonData>) => {
+export const PersonNode = (props: NodeProps<PersonData>) => {
   const { id, data } = props;
-  const {birthYear, birthMonth, birthDate, firstName, lastName, profilePictureURL} = data;
+  const { birthYear, birthMonth, birthDate, firstName, lastName, profilePictureURL } = data;
   const selectedNode = useRecoilValue(selectedNodeState);
   const isSelected = id === selectedNode?.id;
-  const fullName = formatFullName({firstName, lastName});
-  const birthDay = formatBirthDay({birthYear, birthMonth, birthDate});
-
+  const fullName = formatFullName({ firstName,
+lastName });
+  const birthDay = formatBirthDay({ birthYear,
+birthMonth,
+birthDate });
 
   return (
     <>
-      <StyledHandle type="source" position={Position.Right} id="personSourceRight" />
-      <StyledHandle type="source" position={Position.Left} id="personSourceLeft" />
-      <StyledHandle type="source" position={Position.Top} id="personSourceTop" />
+      <StyledHandle type='source' position={Position.Right} id='personSourceRight' />
+      <StyledHandle type='source' position={Position.Left} id='personSourceLeft' />
+      <StyledHandle type='source' position={Position.Top} id='personSourceTop' />
       <AnimatePresence>
         <motion.div
           key={data.label}
           variants={variants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+          transition={{ duration: 0.8,
+ease: 'easeOut' }}
         >
           <StyledBox isSelected={isSelected}>
             <IconBox isSelected={isSelected}>
@@ -146,7 +149,7 @@ export const personNode = (props: NodeProps<PersonData>) => {
                   <CustomProfileIcon src={profilePictureURL} />
                 ) : (
                   <DefaultProfileIcon>
-                    <BiSolidUser size={100} color="#ffffff" />
+                    <BiSolidUser size={100} color='#ffffff' />
                   </DefaultProfileIcon>
                 )}
               </IconInner>

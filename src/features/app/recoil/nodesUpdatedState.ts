@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
 export const nodesUpdatedState = atom({
-  key: "nodesUpdated",
+  key: 'nodesUpdated',
   default: false,
-})
+});

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { Children, FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 type Props = {

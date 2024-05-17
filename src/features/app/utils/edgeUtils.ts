@@ -1,12 +1,12 @@
-import { Edge } from 'reactflow'
+import { Edge } from 'reactflow';
 
 export const createEdge = (
-    source: Edge["source"], 
-    target: Edge["target"], 
-    type:Edge["type"] = 'smoothstep', 
-    sourceHandle: Edge["sourceHandle"], 
-    targetHandle: Edge["targetHandle"]
-    ): Edge => {
+  source: Edge['source'],
+  target: Edge['target'],
+  type: Edge['type'] = 'smoothstep',
+  sourceHandle: Edge['sourceHandle'],
+  targetHandle: Edge['targetHandle']
+): Edge => {
   return {
     type,
     id: `edge-${source}-${target}`,
@@ -16,7 +16,7 @@ export const createEdge = (
     targetHandle,
     focusable: false,
     style: {
-      stroke: '#FF0072'
-    }
-  }
-}
+      stroke: '#FF0072',
+    },
+  };
+};
