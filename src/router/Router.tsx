@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Page404 } from "../components/pages/Page404";
+import { Page404 } from "../features/app/component/Page404";
 import { FamilyTree } from "../features/app/component/FamilyTree";
 
 export const Router: FC = memo(() => (
