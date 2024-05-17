@@ -1,4 +1,4 @@
-import { Node } from "reactflow";
+import { Node } from 'reactflow';
 
 export interface BasicPersonInfo {
   firstName?: string | null;
@@ -37,11 +37,11 @@ export interface MaritalData {
 }
 
 export interface PersonNodeData extends Node<PersonData> {
-  type: "person";
+  type: 'person';
   data: PersonData;
 }
 
 export interface MaritalNodeData extends Node<PersonData | MaritalData> {
-  type: "marital";
+  type: 'marital';
   data: PersonData | MaritalData;
 }

@@ -1,4 +1,4 @@
-import { EdgeProps, getBezierPath } from 'reactflow';
+import { EdgeProps } from 'reactflow';
 
 export const ParentChildEdge: React.FC<EdgeProps> = ({
   id,
@@ -16,17 +16,14 @@ export const ParentChildEdge: React.FC<EdgeProps> = ({
   if (Math.abs(sourceX - targetX) <= radius) {
     customEdgePath = `M${sourceX},${sourceY} L${targetX},${targetY}`;
   } else if (sourceX < targetX) {
-    customEdgePath = `M${sourceX},${sourceY} V${middleY + radius} A${radius},${radius} 0 0 1 ${sourceX + radius},${middleY} H${targetX} V${targetY}`;
+    customEdgePath = `M${sourceX},${sourceY} V${middleY + radius} A${radius},${radius} 0 0 1 ${
+      sourceX + radius
+    },${middleY} H${targetX} V${targetY}`;
   } else {
-    customEdgePath = `M${sourceX},${sourceY} V${middleY + radius} A${radius},${radius} 0 0 0 ${sourceX - radius},${middleY} H${targetX} V${targetY}`;
+    customEdgePath = `M${sourceX},${sourceY} V${middleY + radius} A${radius},${radius} 0 0 0 ${
+      sourceX - radius
+    },${middleY} H${targetX} V${targetY}`;
   }
 
-  return (
-    <path
-      id={id}
-      style={style}
-      className='react-flow__edge-path'
-      d={customEdgePath}
-    />
-  )
-}
+  return <path id={id} style={style} className='react-flow__edge-path' d={customEdgePath} />;
+};

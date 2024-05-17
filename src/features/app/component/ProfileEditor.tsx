@@ -1,10 +1,10 @@
-import { FC, memo, useEffect, useRef, useState } from 'react';
+import { FC, FormEvent, memo, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useProfilePictureUpload } from '../hooks/useProfilePictureChange';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { wholeNodesState } from '../../../recoil/WholeNodesState';
-import { nodesUpdatedState } from '../../../recoil/nodesUpdatedState';
-import { selectedNodeState } from '../../../recoil/selectedNodeState';
+import { wholeNodesState } from '../recoil/WholeNodesState';
+import { nodesUpdatedState } from '../recoil/nodesUpdatedState';
+import { selectedNodeState } from '../recoil/selectedNodeState';
 import styled from 'styled-components';
 import { IoChevronDown } from 'react-icons/io5';
 
@@ -15,8 +15,8 @@ type Inputs = {
   birthMonth: number;
   birthDate: number;
   gender: string;
-  profilePicture: any;
-  profilePictureURL: any;
+  profilePicture: File | null;
+  profilePictureURL: string | null;
 };
 
 type ProfileEditorProps = {
@@ -239,7 +239,7 @@ const genders: Gender[] = [
   },
 ];
 
-export const ProfileEditor: FC<ProfileEditorProps> = memo(props => {
+export const ProfileEditor: FC<ProfileEditorProps> = memo(function ProfileEditorComponent(props) {
   const { setShowProfileEditor, onClose } = props;
   const selectedNode = useRecoilValue(selectedNodeState);
   const currentYear = new Date().getFullYear();
@@ -275,32 +275,35 @@ export const ProfileEditor: FC<ProfileEditorProps> = memo(props => {
     inputRef.current?.click();
   };
 
-  const onSubmit = handleSubmit(data => {
-    if (selectedNode) {
-      const updatedNode = {
-        ...selectedNode,
-        data: {
-          ...selectedNode.data,
-          lastName: data.lastName,
-          firstName: data.firstName,
-          birthYear: data.birthYear,
-          birthMonth: data.birthMonth,
-          birthDate: data.birthDate,
-          gender: data.gender,
-          profilePicture: data.profilePicture,
-          profilePictureURL: data.profilePicture instanceof File ? URL.createObjectURL(data.profilePicture) : null,
-        },
-      };
-      setWholeNodes(prevNodes =>
-        prevNodes.map(node => {
-          return node.id === selectedNode.id ? updatedNode : node;
-        })
-      );
-    }
-    onClose();
-    setShowProfileEditor(false);
-    setNodesUpdated(true);
-  });
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleSubmit(data => {
+      if (selectedNode) {
+        const updatedNode = {
+          ...selectedNode,
+          data: {
+            ...selectedNode.data,
+            lastName: data.lastName,
+            firstName: data.firstName,
+            birthYear: data.birthYear,
+            birthMonth: data.birthMonth,
+            birthDate: data.birthDate,
+            gender: data.gender,
+            profilePicture: data.profilePicture,
+            profilePictureURL: data.profilePicture instanceof File ? URL.createObjectURL(data.profilePicture) : null,
+          },
+        };
+        setWholeNodes(prevNodes =>
+          prevNodes.map(node => {
+            return node.id === selectedNode.id ? updatedNode : node;
+          })
+        );
+      }
+      onClose();
+      setShowProfileEditor(false);
+      setNodesUpdated(true);
+    });
+  };
 
   const [selectedGender, setSelectedGender] = useState<string | undefined>(undefined);
 
@@ -338,7 +341,7 @@ export const ProfileEditor: FC<ProfileEditorProps> = memo(props => {
       <FormLabel mt={24}>性別</FormLabel>
       <HorizontalBox>
         {genders.map(gender => (
-          <RadioBox>
+          <RadioBox key={gender}>
             <RadioInput value={gender.value} {...register('gender')} />
             <RadioControl></RadioControl>
             <RadioText>{gender.label}</RadioText>

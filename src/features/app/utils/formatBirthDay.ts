@@ -7,5 +7,4 @@ export function formatBirthDay(data: BirthData): string {
   if (!birthDate) return `${birthYear}/${birthMonth}`;
 
   return `${birthYear}/${birthMonth}/${birthDate}`;
-
 }

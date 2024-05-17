@@ -1,12 +1,11 @@
-import { Dispatch, SetStateAction } from "react";
-import { Edge, Node } from "reactflow";
-import { PersonNodeData, MaritalNodeData } from "../types/PersonNodeData";
-import { getAddedNodeId } from "../utils/getAddedNodeId";
-import { createMaritalNode, createPersonNode } from "../utils/nodeUtils";
-import { createEdge } from "../utils/edgeUtils";
-import { BASE_MARITAL_SPACING } from "../utils/constants";
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { selectedNodeState } from '../../../recoil/selectedNodeState';
+import { Dispatch, SetStateAction } from 'react';
+import { Edge } from 'reactflow';
+import { PersonNodeData, MaritalNodeData } from '../types/PersonNodeData';
+import { createMaritalNode, createPersonNode } from '../utils/nodeUtils';
+import { createEdge } from '../utils/edgeUtils';
+import { BASE_MARITAL_SPACING } from '../utils/constants';
+import { useRecoilValue } from 'recoil';
+import { selectedNodeState } from '../recoil/selectedNodeState';
 
 export const useAddSpouseToSelectedNode = (
   setWholeNodes: Dispatch<SetStateAction<(PersonNodeData | MaritalNodeData)[]>>,
@@ -29,17 +28,18 @@ export const useAddSpouseToSelectedNode = (
       const selectedToMaritalEdge = createEdge(
         selectedNode.id,
         maritalNode.id,
-        "smoothstep",
-        "personSourceRight",
-        "maritalTargetLeft"
+        'smoothstep',
+        'personSourceRight',
+        'maritalTargetLeft'
       );
 
       const SpouseNode = createPersonNode(
-        { x: selectedNode.position.x + BASE_MARITAL_SPACING * 2, y: selectedNode.position.y },
+        { x: selectedNode.position.x + BASE_MARITAL_SPACING * 2,
+y: selectedNode.position.y },
         {
           spouse: [selectedNode.id],
           maritalNodeId: maritalNode.id,
-          maritalPosition: selectedNodeMaritalPosition === 'left'  ? 'right' : 'left'
+          maritalPosition: selectedNodeMaritalPosition === 'left' ? 'right' : 'left',
         }
       );
       // setLastAddedNode(SpouseNode);
@@ -47,12 +47,12 @@ export const useAddSpouseToSelectedNode = (
       const spouseToMaritalEdge = createEdge(
         SpouseNode.id,
         maritalNode.id,
-        "smoothstep",
-        "personSourceLeft",
-        "maritalTargetRight"
+        'smoothstep',
+        'personSourceLeft',
+        'maritalTargetRight'
       );
 
-      let updatedNode = {
+      const updatedNode = {
         ...selectedNode,
         data: {
           ...selectedNode.data,

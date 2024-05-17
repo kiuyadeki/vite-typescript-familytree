@@ -6,10 +6,10 @@ import { GlobalStyle } from './assets/styles/globalstyle';
 export default function App() {
   return (
     <RecoilRoot>
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
-        <GlobalStyle />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+      <GlobalStyle />
     </RecoilRoot>
   );
 }
