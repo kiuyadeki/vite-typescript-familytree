@@ -1,13 +1,13 @@
 import { Dispatch, FC, SetStateAction, memo, useEffect, useState } from "react";
 import { ProfileEditor } from "./ProfileEditor";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { selectedNodeState } from "../../recoil/selectedNodeState";
-import { useAddParentToSelectedNode } from "../../hooks/useAddParentToSelectedNode";
-import { useAddChildToSelectedNode } from "../../hooks/useAddChildToSelectedNode";
-import { useAddSpouseToSelectedNode } from "../../hooks/useAddSpouseToSelectedNode";
-import { wholeNodesState } from "../../recoil/WholeNodesState";
-import { nodesUpdatedState } from "../../recoil/nodesUpdatedState";
-import { wholeEdgesState } from "../../recoil/WholeEdgesState";
+import { selectedNodeState } from "../../../recoil/selectedNodeState";
+import { useAddParentToSelectedNode } from "../hooks/useAddParentToSelectedNode";
+import { useAddChildToSelectedNode } from "../hooks/useAddChildToSelectedNode";
+import { useAddSpouseToSelectedNode } from "../hooks/useAddSpouseToSelectedNode";
+import { wholeNodesState } from "../../../recoil/WholeNodesState";
+import { nodesUpdatedState } from "../../../recoil/nodesUpdatedState";
+import { wholeEdgesState } from "../../../recoil/WholeEdgesState";
 import { IoCloseOutline } from "react-icons/io5";
 import styled from "styled-components";
 

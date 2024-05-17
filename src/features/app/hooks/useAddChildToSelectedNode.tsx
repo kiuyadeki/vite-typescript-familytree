@@ -7,7 +7,7 @@ import { createEdge } from "../utils/edgeUtils";
 import { BASE_GENERATIONS_SPACING, BASE_MARITAL_SPACING } from "../utils/constants";
 import { isPersonNodeData } from "../typeGuards/personTypeGuards";
 import { useRecoilValue } from 'recoil';
-import { selectedNodeState } from '../recoil/selectedNodeState';
+import { selectedNodeState } from '../../../recoil/selectedNodeState';
 
 export const useAddChildToSelectedNode = (
   wholeNodes: (PersonNodeData | MaritalNodeData)[],

@@ -302,7 +302,7 @@ export function calculateNodesPosition(
     if(!isPersonNodeData(a) || !isPersonNodeData(b)) return 0;
     const ageA = getAge(a);
     const ageB = getAge(b);
-  
+
     if (ageA > ageB) return -1;
     if (ageA < ageB) return 1;
     return parseInt(a.id, 10) - parseInt(b.id, 10);

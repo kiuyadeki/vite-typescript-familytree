@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Edge } from 'reactflow';
 import { PersonNodeData } from '../types/PersonNodeData';
 import { useRecoilValue } from 'recoil';
-import { selectedNodeState } from '../recoil/selectedNodeState';
+import { selectedNodeState } from '../../../recoil/selectedNodeState';
 
 function useOutgoingEdges(wholeEdges: Edge[]) {
   const selectedNode = useRecoilValue(selectedNodeState);
