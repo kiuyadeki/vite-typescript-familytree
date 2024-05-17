@@ -1,7 +1,7 @@
 import { atom } from "recoil";
-import { PersonNodeData, MaritalNodeData } from "../types/PersonNodeData";
+import { PersonNodeData, MaritalNodeData } from "../features/app/types/PersonNodeData";
 
-export const initialNode: (PersonNodeData | MaritalNodeData) = 
+export const initialNode: (PersonNodeData | MaritalNodeData) =
   {
     id: "0",
     type: "person",

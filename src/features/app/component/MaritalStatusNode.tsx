@@ -1,10 +1,10 @@
 import { Handle, NodeProps, Position } from "reactflow";
-import { BASE_MARITAL_NODE_HEIGHT, BASE_MARITAL_NODE_WIDTH } from "../../utils/constants";
-import { MaritalData } from "../../types/PersonNodeData";
+import { BASE_MARITAL_NODE_HEIGHT, BASE_MARITAL_NODE_WIDTH } from "../utils/constants";
+import { MaritalData } from "../types/PersonNodeData";
 import { GiBigDiamondRing } from "react-icons/gi";
 import { TfiUnlink } from "react-icons/tfi";
 import { useRecoilState } from "recoil";
-import { wholeNodesState } from "../../recoil/WholeNodesState";
+import { wholeNodesState } from "../../../recoil/WholeNodesState";
 import styled from "styled-components";
 
 const StyledHandle = styled(Handle)`

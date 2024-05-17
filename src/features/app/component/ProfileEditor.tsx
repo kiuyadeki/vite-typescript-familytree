@@ -1,10 +1,10 @@
 import { FC, memo, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useProfilePictureUpload } from '../../hooks/useProfilePictureChange';
+import { useProfilePictureUpload } from '../hooks/useProfilePictureChange';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { wholeNodesState } from '../../recoil/WholeNodesState';
-import { nodesUpdatedState } from '../../recoil/nodesUpdatedState';
-import { selectedNodeState } from '../../recoil/selectedNodeState';
+import { wholeNodesState } from '../../../recoil/WholeNodesState';
+import { nodesUpdatedState } from '../../../recoil/nodesUpdatedState';
+import { selectedNodeState } from '../../../recoil/selectedNodeState';
 import styled from 'styled-components';
 import { IoChevronDown } from 'react-icons/io5';
 

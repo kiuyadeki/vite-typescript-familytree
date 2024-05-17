@@ -1,11 +1,11 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { wholeNodesState } from "../../recoil/WholeNodesState";
-import { wholeEdgesState } from "../../recoil/WholeEdgesState";
-import { selectedNodeState } from "../../recoil/selectedNodeState";
-import { nodesUpdatedState } from "../../recoil/nodesUpdatedState";
+import { wholeNodesState } from "../../../recoil/WholeNodesState";
+import { wholeEdgesState } from "../../../recoil/WholeEdgesState";
+import { selectedNodeState } from "../../../recoil/selectedNodeState";
+import { nodesUpdatedState } from "../../../recoil/nodesUpdatedState";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import { personNode } from "../parts/CustomNode";
-import { maritalNode } from "../parts/MaritalStatusNode";
+import { personNode } from "./CustomNode";
+import { maritalNode } from "./MaritalStatusNode";
 import ReactFlow, {
   Background,
   BackgroundVariant,
@@ -17,13 +17,13 @@ import ReactFlow, {
   useReactFlow,
   useViewport,
 } from "reactflow";
-import { filterDirectLineagesNodes } from "../../utils/filterDirectLineageNodes";
-import { calculateNodesPosition } from "../../utils/calculateNodesPosition";
-import { isPersonNodeData } from "../../typeGuards/personTypeGuards";
-import { PersonNodeData } from "../../types/PersonNodeData";
-import { getSelectedNodePosition } from "../../utils/getSelectedNodePosition";
-import { BASE_MARITAL_NODE_WIDTH, BASE_PERSON_NODE_HEIGHT, BASE_PERSON_NODE_WIDTH } from "../../utils/constants";
-import { ParentChildEdge } from "../parts/ParentChildEdge";
+import { filterDirectLineagesNodes } from "../utils/filterDirectLineageNodes";
+import { calculateNodesPosition } from "../utils/calculateNodesPosition";
+import { isPersonNodeData } from "../typeGuards/personTypeGuards";
+import { PersonNodeData } from "../types/PersonNodeData";
+import { getSelectedNodePosition } from "../utils/getSelectedNodePosition";
+import { BASE_MARITAL_NODE_WIDTH, BASE_PERSON_NODE_HEIGHT, BASE_PERSON_NODE_WIDTH } from "../utils/constants";
+import { ParentChildEdge } from "./ParentChildEdge";
 import styled from "styled-components";
 
 const OuterBox = styled.div`
